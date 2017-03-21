@@ -173,3 +173,21 @@ Once you have written your module, add it to the master ```nclx.ncl``` file. Thi
 ...
 load "$NCLX_ROOT/my_module.ncl"
 ```
+
+## Write a documentation file
+
+Create a markdown file alongside your module with the same name as the .ncl file that shows basic usage. This should be Github-flavoured markdown and committed alongside your changes.
+
+*my_module.md*
+
+```
+# MY MODULE
+
+Short description of module...
+
+How to load the module...
+
+## Function one
+
+Explain how to do function one with code examples (see existing md files for guidance).
+```
