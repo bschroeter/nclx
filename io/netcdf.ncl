@@ -8,7 +8,7 @@ function nc_read(filepath:string)
 ; Returns:
 ;   file (file) : Opened file(s)
 begin
-    if (dimsizes(filepath).gt.1) then
+    if (dimsizes(dimsizes(filepath)).gt.1) then
         return addfile(filepath, "r")
     else
         return addfiles(filepath, "r")
