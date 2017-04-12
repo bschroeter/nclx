@@ -126,12 +126,6 @@ Use local variables at all times (and define them) so as to not overwrite variab
 
 Also, never overwrite an external variable inside the function. Instead, return a variable that can be used by the user to replace the original variable if they wish.
 
-## Always return something
-
-While it may make sense in some instances to use a procedure, it is frustrating to the user to call a function only to be greeted with an error that they really called a procedure and shouldn't be trying to catch the result (or vice versa).
-
-To avoid this, make everything a function and return something. If it inherently doesn't return anything, just return a boolean True/False indicating that the function succeeded or failed that can be interpreted by the user downstream.
-
 ## Assume nothing
 
 Where possible, make no assumptions about the user's intent. Be clear on what the function should do and do not do so the user doesn't get any surprises.
