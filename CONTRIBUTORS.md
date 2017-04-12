@@ -25,7 +25,7 @@ end
 
 ## "Like" modules go in a directory
 
-If their are multiple, though similar modules pertaining to a particular use case, put them in a directory. For example, the "csv" and "netcdf" modules both pertain to input/output, so put them in the "io" directory.
+If there are multiple, though similar modules pertaining to a particular use case, put them in a directory. For example, the "csv" and "netcdf" modules both pertain to input/output, so put them in the "io" directory.
 
 ## Always undefine
 
@@ -43,7 +43,7 @@ The undefine keyword is to ensure the integrity of the program context, but shou
 
 ### Module filenames should be lowercase-underscore and self-explanatory (no jargon).
 
-They should also lend themselves to obvious abbreviation (i.e. the nclx netcdf module could be abbreviated to "nc").
+They should also lend themselves to obvious abbreviation (i.e. the nclx netcdf module is abbreviated to "nc").
 
 ### Prefix module functions with the abbreviated name of module in which it resides.
 
@@ -64,7 +64,7 @@ Take a look at existing components in nclx, as well as the core NCL command refe
 
 ### Functions should be human-readable and obvious in what they do.
 
-Again, no jargon beyond *very* common (like "csv" or "nc").
+Again, no jargon beyond the *very* common (like "csv" or "nc").
 
 ### Private functions should be underscored
 
