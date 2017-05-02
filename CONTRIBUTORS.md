@@ -25,7 +25,7 @@ end
 
 ## "Like" modules go in a directory
 
-If their are multiple, though similar modules pertaining to a particular use case, put them in a directory. For example, the "csv" and "netcdf" modules both pertain to input/output, so put them in the "io" directory.
+If there are multiple, though similar modules pertaining to a particular use case, put them in a directory. For example, the "csv" and "netcdf" modules both pertain to input/output, so put them in the "io" directory.
 
 ## Always undefine
 
@@ -43,7 +43,7 @@ The undefine keyword is to ensure the integrity of the program context, but shou
 
 ### Module filenames should be lowercase-underscore and self-explanatory (no jargon).
 
-They should also lend themselves to obvious abbreviation (i.e. the nclx netcdf module could be abbreviated to "nc").
+They should also lend themselves to obvious abbreviation (i.e. the nclx netcdf module is abbreviated to "nc").
 
 ### Prefix module functions with the abbreviated name of module in which it resides.
 
@@ -64,7 +64,7 @@ Take a look at existing components in nclx, as well as the core NCL command refe
 
 ### Functions should be human-readable and obvious in what they do.
 
-Again, no jargon beyond *very* common (like "csv" or "nc").
+Again, no jargon beyond the *very* common (like "csv" or "nc").
 
 ### Private functions should be underscored
 
@@ -125,12 +125,6 @@ x = x + 1
 Use local variables at all times (and define them) so as to not overwrite variables outside of the function scope.
 
 Also, never overwrite an external variable inside the function. Instead, return a variable that can be used by the user to replace the original variable if they wish.
-
-## Always return something
-
-While it may make sense in some instances to use a procedure, it is frustrating to the user to call a function only to be greeted with an error that they really called a procedure and shouldn't be trying to catch the result (or vice versa).
-
-To avoid this, make everything a function and return something. If it inherently doesn't return anything, just return a boolean True/False indicating that the function succeeded or failed that can be interpreted by the user downstream.
 
 ## Assume nothing
 
