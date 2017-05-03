@@ -29,19 +29,18 @@ content = csv_read("my_data.csv")
 ; Get a list of the column headings
 headers = content(0,:)
 
-; Get the data and convert it to floats
+; Get the data and convert it to floats (ignoring the header on the first line)
 data = tofloat(content(1:,:))
 ```
 
 ## Writing CSV files
 
 ```
-function csv_write(filepath:string, content, header:string)
+procedure csv_write(filepath:string, content, header:string)
 ; Write content to filepath as a CSV
 ; Args:
 ;   filepath (string) : Full path to file
 ;   content (array, mixed) : 2D array of data
-;   header (string) : Comma-separated string of column headers
 ; Returns:
 ;   status (boolean) : True on success, False otherwise
 ```
@@ -49,7 +48,11 @@ function csv_write(filepath:string, content, header:string)
 Writing CSV files requires that you have 2-dimensional data to work with. Assume that you have a 2D array with a column of latitudes and a column of corresponding average temperature values. To write that into a CSV, you would use the following code:
 
 ```
-success = csv_write("temp_by_lat.csv", temps_by_lat, "latitude,avg_temperature")
+; Add a header (omitting this creates a header-less csv)
+temps_by_lat@csv_header = "latitude,avg_temperature"
+
+; Write the CSV
+csv_write("temp_by_lat.csv", temps_by_lat)
 ```
 
 This would write a file in the current directory called "temp_by_lat.csv" with a header of "latitude,avg_temperature" and columnar data of latitudes and average temperatures.

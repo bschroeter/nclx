@@ -156,18 +156,6 @@ Test your module under a variety of circumstances to ensure that it behaves acco
 
 Eventually, nclx will feature an automated test suite. In the meantime, just test to make sure it works as best you can.
 
-## Add the module to the master load script
-
-Once you have written your module, add it to the master ```nclx.ncl``` file. This file is used by users who want to import the whole library in one go. This file is alphabetical by name and module directory.
-
-*nclx.ncl*
-
-```
-; Master script to load all modules.
-...
-load "$NCLX_ROOT/my_module.ncl"
-```
-
 ## Write a documentation file
 
 Create a markdown file alongside your module with the same name as the .ncl file that shows basic usage. This should be Github-flavoured markdown and committed alongside your changes.

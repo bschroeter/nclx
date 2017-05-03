@@ -28,14 +28,11 @@ begin
 end
 
 undef("csv_write")
-function csv_write(filepath:string, content, header:string)
+procedure csv_write(filepath:string, content, header:string)
 ; Write content to filepath as a CSV
 ; Args:
 ;   filepath (string) : Full path to file
 ;   content (array, mixed) : 2D array of data
-;   header (string) : Comma-separated string of column headers
-; Returns:
-;   status (boolean) : True on success, False otherwise
 local shape, num_lines, lines, line, row_ix
 begin
 
@@ -46,21 +43,34 @@ begin
         return False
     end if
 
-    num_lines = shape(0) + 1
-    lines = new(num_lines, string)
+    ; Add the header, if it is set
+    if (isatt(content, "csv_header")) then
 
-    ; Add the header
-    lines(0) = header
+        num_lines = shape(0) + 1
+        lines = new(num_lines, string)
 
-    do row_ix = 0, shape(0)-1
-        ; write loop content
-        line := str_join(tostring(data(row_ix,:)),",")
-        lines(row_ix+1) = line
-    end do
+        lines(0) = content@csv_header
+
+        do row_ix = 0, shape(0)-1
+            ; write loop content
+            line := str_join(tostring(data(row_ix,:)),",")
+            lines(row_ix+1) = line
+        end do
+
+    else
+
+        num_lines = shape(0)
+        lines = new(num_lines, string)
+
+        do row_ix = 0, shape(0)-1
+            ; write loop content
+            line := str_join(tostring(data(row_ix,:)),",")
+            lines(row_ix) = line
+        end do
+
+    end if
 
     ; Output the CSV
     asciiwrite(filepath, lines)
 
-    ; Return success
-    return True
 end

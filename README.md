@@ -14,14 +14,26 @@ export NCLX_ROOT=$HOME/lib/nclx
 
 ## Usage
 
-In any script you want to use the library, put this at the top:
+To use the NCLx library, add this to the top of your script:
 
 ```
 load "$NCLX_ROOT/nclx.ncl"
 ```
 
-You will then have access to all of the functionality in the library. Alternatively, you can load just a single module from the library. Like so:
+You can then use libraries in a number of ways:
 
 ```
+; Load the library
+load "$NCLX_ROOT/nclx.nclx"
+
+; 1. Import a single module
+import("io/csv")
+
+; 2. Import multiple modules
+import((/"io/csv", "io/netcdf", "strings"/))
+
+; 3. Import the module directly
 load "$NCLX_ROOT/io/csv.ncl"
 ```
+
+See documentation for individual libraries by navigating to the markdown (.md) files on this repository.
